@@ -13,7 +13,11 @@ const fs = require('fs');
     const defaultPath = `screenshot-${timestamp}.png`;
     const path = "/Users/alekdanielsy/Library/CloudStorage/GoogleDrive-alek@cleardesk.com/My Drive/Pending Placements Screenshots/" + defaultPath;
 
-    const browser = await puppeteer.launch({ headless: "new" });
+    // const browser = await puppeteer.launch({ headless: "new" });
+    const browser = await puppeteer.launch({
+  headless: "new",
+  args: ['--no-sandbox', '--disable-setuid-sandbox']
+});
     const page = await browser.newPage();
     await page.setViewport({ width: 1280, height: 800 });
 
